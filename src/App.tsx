@@ -16,7 +16,7 @@ function App() {
     <div>
       <InstallPrompt />
       <PWAUpdateBanner />
-      Hospital Main
+      Hospital Main Page has just been updated
     </div>
   );
 }
