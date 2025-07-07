@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
-import "./Navbar.scss";
 import { useEffect, useState } from "react";
-import { navbarItems } from "../../constant";
-import Button from "../button/Button";
+import { navbarItems } from "../constant";
+import Button from "../components/button/Button";
+import Features from "./Features";
+import About from "./About";
+import "../sass/global.scss";
+import Home from "./Home";
+import scrollIntoView from "scroll-into-view";
 
-const Navbar = () => {
+const GeneralHomePage = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
@@ -17,7 +21,7 @@ const Navbar = () => {
         });
       },
       {
-        rootMargin: "-50% 0px -40% 0px", // triggers when section is near middle
+        rootMargin: "-50% 0px -40% 0px",
         threshold: 0.1,
       }
     );
@@ -30,16 +34,36 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
+  const handleNavClick = (id: string, e: React.MouseEvent) => {
+    e.preventDefault(); // stop anchor from jumping
+    const target = document.getElementById(id);
+    if (target) {
+      setTimeout(() => {
+        scrollIntoView(target, {
+          time: 2000,
+          align: { top: 0 },
+          ease: (t: number) => Math.pow(t, 5) ,
+        });
+      });
+      // delay before scroll
+    }
+  };
+
   return (
-    <section>
-      <div className="navbar" id="home">
+    <section className="index">
+      <nav className="navbar">
         <Link to={"/"}>HomeLogo</Link>
 
         <div className="nav-items">
           {navbarItems.map((item, index) => {
             const isActive = item.id === activeSection;
+
             return (
-              <a href={item.url} key={index}>
+              <a
+                href={item.url}
+                key={index}
+                onClick={(e) => handleNavClick(item.id, e)}
+              >
                 <div className={`nav-item ${isActive ? "active" : ""}`}>
                   {item.title}
                 </div>
@@ -68,13 +92,14 @@ const Navbar = () => {
             fontWeight={400}
           />
         </div>
-      </div>
+      </nav>
 
-      <div className="home" id="home">Home</div>
-
-      <div className="features" id="features">Features</div>
+      {/* These must have matching IDs! */}
+      <Home id="home" />
+      <Features id="features" />
+      <About id="about" />
     </section>
   );
 };
 
-export default Navbar;
+export default GeneralHomePage;

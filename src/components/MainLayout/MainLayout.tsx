@@ -1,11 +1,10 @@
-import Navbar from "../Navbar/Navbar"
-import "./MainLayout.scss"
+import GeneralHomePage from "../../routes/GeneralHomePage";
 const MainLayout = () => {
   return (
     <div>
-        <Navbar />
+      <GeneralHomePage />
     </div>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;
