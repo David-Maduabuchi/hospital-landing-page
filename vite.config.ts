@@ -4,13 +4,9 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
-  preview: {
-    allowedHosts: [".loca.lt"],
-  },
   server: {
     host: true,
     port: 5173,
-    allowedHosts: [".loca.lt"],
   },
   plugins: [
     react(),
@@ -19,6 +15,7 @@ export default defineConfig({
       devOptions: {
         enabled: true,
       },
+
       includeAssets: [
         "favicon.ico",
         "apple-touch-icon.png",
@@ -56,10 +53,10 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // ⚙️ OPTIMAL WORKBOX CACHING
-        skipWaiting: false, 
-        clientsClaim: true, 
         cleanupOutdatedCaches: true,
+        globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+        skipWaiting: true,
+        clientsClaim: true,
         sourcemap: false,
         runtimeCaching: [
           {
