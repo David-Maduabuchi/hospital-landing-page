@@ -1,83 +1,98 @@
-nav {
-  width: 100%;
-  max-width: 1440px;
-  height: 39px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-  img {
-    width: 61px;
+section {
+  border: 1px solid;
+  div.navbar {
+    width: 100%;
+    max-width: 1440px;
     height: 39px;
-  }
-
-  .nav-items {
     display: flex;
-    width: auto;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    position: relative;
-    gap: 30px;
-    .nav-item {
+    position: fixed;
+  
+    img {
+      width: 61px;
+      height: 39px;
+    }
+  
+    .nav-items {
+      display: flex;
+      width: auto;
+      justify-content: space-between;
+      align-items: center;
       position: relative;
-      padding: 10px;
-      width: fit-content;
-      font-family: "Poppins", "Roboto", "Roobert PRO", sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 20.22px;
-      letter-spacing: 0%;
-
-      cursor: pointer;
-      overflow: hidden; // Hide the underline effect initially
-
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0; // Start width at 0 to animate
-        height: 2px;
-        background-color: #000; // LinkedIn-like color
-        transition: width 0.3s ease, left 0.3s ease; // Smooth animation
+      gap: 30px;
+      .nav-item {
+        position: relative;
+        padding: 10px;
+        width: fit-content;
+        font-family: "Poppins", "Roboto", "Roobert PRO", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20.22px;
+        letter-spacing: 0%;
+  
+        cursor: pointer;
+        overflow: hidden; // Hide the underline effect initially
+  
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 0; // Start width at 0 to animate
+          height: 2px;
+          background-color: #000; // LinkedIn-like color
+          transition: width 0.3s ease, left 0.3s ease; // Smooth animation
+        }
+  
+        &.active::after {
+          width: 100%; // Full width for active item
+          left: 0; // Start the underline from the left side
+        }
+  
+        &:hover::after {
+          width: 100%; // Full width on hover as well
+          left: 0;
+        }
       }
-
-      &.active::after {
-        width: 100%; // Full width for active item
-        left: 0; // Start the underline from the left side
+    }
+  
+    .contact-buttons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+  
+      button {
+        border: 1px solid;
+        padding: 10px 15px;
+        border-radius: 1000px;
+        font-family: "Poppins", "Roboto";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17.7px;
+        letter-spacing: 0%;
       }
-
-      &:hover::after {
-        width: 100%; // Full width on hover as well
-        left: 0;
+      .contact {
+        background-color: white;
+        color: #000;
+      }
+  
+      .get-started {
+        color: white;
+        background-color: black;
       }
     }
   }
-
-  .contact-buttons {
+  
+  div.home {
+    height: 100vh;
+  }
+  div.features, div.home {
+    height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 5px;
-
-    button {
-      border: 1px solid;
-      padding: 10px 15px;
-      border-radius: 1000px;
-      font-family: "Poppins", "Roboto";
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 17.7px;
-      letter-spacing: 0%;
-    }
-    .contact {
-      background-color: white;
-      color: #000;
-    }
-
-    .get-started {
-      color: white;
-      background-color: black;
-    }
   }
 }
