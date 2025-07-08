@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "./button.scss";
+import type { AnchorHTMLAttributes } from "react";
 
-interface Props {
+interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
   width: string;
   height: string;
   backgroundColor: string;
@@ -18,9 +19,10 @@ const Button = ({
   href,
   fontWeight,
   border,
+  ...otherProps
 }: Props) => {
   return (
-    <Link to={href} className="parent">
+    <Link to={href} {...otherProps} className="parent">
       <div
         className={`general-button ${border && "border border-black"} `}
         style={{

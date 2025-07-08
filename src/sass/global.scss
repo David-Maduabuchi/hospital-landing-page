@@ -1,16 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@use "../sass/variable.scss" as *;
+@use "../sass/responsive.scss" as *;
+
 section.index {
   font-family: Poppins;
-  font-weight: 500;
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  @include md {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
   nav {
-    width: 100%;
-    max-width: 1440px;
-    height: 39px;
+    border-bottom: 1px solid rgb(191, 191, 191);
+    height: 70px;
+    align-items: center;
+    width: 100vw;
+    max-width: 1500px;
+    position: fixed;
+    background-color: white;
+    z-index: 100;
+  }
+  nav.desktop,
+  nav.mobile-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: fixed;
+    justify-content: space-around;
+    @include md {
+      display: none;
+    }
 
     img {
       width: 61px;
@@ -23,7 +41,9 @@ section.index {
       justify-content: space-between;
       align-items: center;
       position: relative;
+      margin-right: 20px;
       gap: 30px;
+
       .nav-item {
         position: relative;
         padding: 10px;
@@ -34,9 +54,14 @@ section.index {
         font-size: 16px;
         line-height: 20.22px;
         letter-spacing: 0%;
-
+        color: #00000090;
         cursor: pointer;
-        overflow: hidden; // Hide the underline effect initially
+        overflow: hidden;
+
+        &:hover,
+        &.active {
+          color: $text-bg-color;
+        }
 
         &::after {
           content: "";
@@ -45,13 +70,13 @@ section.index {
           bottom: 0;
           width: 0; // Start width at 0 to animate
           height: 2px;
-          background-color: #000; // LinkedIn-like color
+          background-color: $text-bg-color;
           transition: width 0.3s ease, left 0.3s ease; // Smooth animation
         }
 
         &.active::after {
-          width: 100%; // Full width for active item
-          left: 0; // Start the underline from the left side
+          width: 100%;
+          left: 0;
         }
 
         &:hover::after {
@@ -65,39 +90,239 @@ section.index {
       display: flex;
       align-items: center;
       gap: 5px;
-
-      button {
-        border: 1px solid;
-        padding: 10px 15px;
-        border-radius: 1000px;
-        font-family: "Poppins", "Roboto";
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17.7px;
-        letter-spacing: 0%;
-      }
-      .contact {
-        background-color: white;
-        color: #000;
-      }
-
-      .get-started {
-        color: white;
-        background-color: black;
-      }
     }
   }
+
+  nav.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    z-index: 1000;
+    transition: height 0.4s ease, opacity 0.4s ease;
+
+    @include md {
+      display: flex;
+    }
+
+    .logo {
+      margin-left: 20px;
+    }
+
+    img {
+      width: 28px;
+      height: 31px;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+
+    .nav-items {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background-color: $text-bg-color;
+      padding: 10px;
+      box-sizing: border-box;
+
+      // transition + animation setup
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-20px);
+      pointer-events: none;
+      transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+
+      &.open {
+        max-height: 500px; // adjust if your content is taller
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .nav-item {
+        font-size: 12px;
+        transition: font-size 0.2s ease, color 0.2s ease;
+
+        &:hover,
+        &.active {
+          font-size: 14px;
+          color: rgb(226, 226, 226);
+        }
+
+        &::after {
+          background-color: rgb(226, 226, 226);
+        }
+      }
+    }
+
+    .contact-buttons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  // Home Section Styling
   .home {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin-top: 70px;
+    display: flex;
+    background: $text-bg-color;
+
+    @include md {
+      flex-direction: column;
+      height: 125vh;
+    }
+
+    .first {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      color: white;
+
+      .welcome-container {
+        width: 514px;
+        height: auto;
+        line-height: 1;
+        @include md {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+          width: 100%;
+          height: auto;
+        }
+
+        h1 {
+          font-size: 60px;
+          margin: 0;
+          padding: 0;
+          line-height: 1.1;
+
+          @include md {
+            font-size: 40px;
+          }
+        }
+
+        h5 {
+          font-size: 20px;
+          padding: 0;
+          margin: 10px 0;
+
+          @include md {
+            font-size: 16px;
+          }
+        }
+        p {
+          font-size: 16px;
+          font-weight: 400;
+          @include md {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .second {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+
+      align-items: center;
+
+      img {
+        width: 80%;
+        height: auto;
+      }
+    }
+  }
+
+  div.water-wave {
+    width: 100vw;
+    overflow: hidden;
+    max-width: 1500px;
+    position: absolute;
+    top: 99vh;
+
+    @include md {
+      top: 130vh;
+    }
+
+    use {
+      animation: move-forever 2s linear infinite;
+      &:nth-child(2) {
+        animation-duration: 2.5s;
+        animation-delay: -1.5s;
+      }
+      &:nth-child(1) {
+        animation-duration: 5s;
+      }
+    }
+
+    @keyframes move-forever {
+      0% {
+        transform: translate(-2px, 0);
+      }
+      100% {
+        transform: translate(0px, 0);
+      }
+    }
+    svg {
+      width: 100vw;
+      height: 100px;
+      @include md {
+        height: 50px;
+      }
+    }
   }
   .features {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 450px;
+    margin-top: 50px;
+    flex-direction: column;
+    color: #212529;
+    @include md {
+      height: auto;
+    }
+    h3.title {
+      font-size: 32px;
+      margin: 0;
+      color: $text-bg-color;
+    }
+
+    p.des {
+      font-size: 14px;
+    }
+
+    .flex-feature-card {
+      margin-top: 20px;
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 30px;
+      @include md {
+        flex-direction: column;
+      }
+    }
   }
   .about {
     display: flex;

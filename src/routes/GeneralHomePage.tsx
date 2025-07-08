@@ -9,6 +9,7 @@ import Home from "./Home";
 import scrollIntoView from "scroll-into-view";
 
 const GeneralHomePage = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
@@ -42,7 +43,7 @@ const GeneralHomePage = () => {
         scrollIntoView(target, {
           time: 2000,
           align: { top: 0 },
-          ease: (t: number) => Math.pow(t, 5) ,
+          ease: (t: number) => Math.pow(t, 5),
         });
       });
       // delay before scroll
@@ -51,8 +52,9 @@ const GeneralHomePage = () => {
 
   return (
     <section className="index">
-      <nav className="navbar">
-        <Link to={"/"}>HomeLogo</Link>
+      {/* Navbar */}
+      <nav className="desktop">
+        <Link to={"/"}>VibetLogo</Link>
 
         <div className="nav-items">
           {navbarItems.map((item, index) => {
@@ -74,15 +76,6 @@ const GeneralHomePage = () => {
 
         <div className="contact-buttons">
           <Button
-            backgroundColor="white"
-            height="38px"
-            width="84px"
-            href="/contact"
-            label="Contact"
-            border
-            fontWeight={400}
-          />
-          <Button
             backgroundColor="black"
             height="38px"
             width="105px"
@@ -94,8 +87,61 @@ const GeneralHomePage = () => {
         </div>
       </nav>
 
+      <nav className="mobile-nav">
+        <Link className="logo" to={"/"}>
+          HomeLogo
+        </Link>
+
+        {/* ICON */}
+        <img onClick={() => setIsNavOpen(!isNavOpen)} src="/nav.svg" alt="" />
+        <div className={`nav-items ${isNavOpen ? "open" : ""}`}>
+          {navbarItems.map((item, index) => {
+            const isActive = item.id === activeSection;
+
+            return (
+              <a
+                href={item.url}
+                key={index}
+                onClick={(e) => {
+                  handleNavClick(item.id, e);
+                  setIsNavOpen(false);
+                }}
+              >
+                <div className={`nav-item ${isActive ? "active" : ""}`}>
+                  {item.title}
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </nav>
+
       {/* These must have matching IDs! */}
-      <Home id="home" />
+      <Home id="home" handleNavClick={handleNavClick} />
+
+      {/* Water wave animation */}
+      <div className="water-wave">
+        <svg viewBox="0 0 2 1" preserveAspectRatio="none">
+          <defs>
+            <path
+              id="w"
+              d="
+      m0 1v-.5 
+      q.5.5 1 0
+      t1 0 1 0 1 0
+      v.5z"
+            />
+          </defs>
+          <g>
+            <use href="#w" y=".0" fill="#009bad" />
+            <use href="#w" y=".1" fill="#00c1d6" />
+            <use href="#w" y=".1" fill="#00c1d6" />
+            <use href="#w" y=".2" fill="#ffffff" />
+          </g>
+        </svg>
+      </div>
+
+      {/* FEATURES */}
       <Features id="features" />
       <About id="about" />
     </section>

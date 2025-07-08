@@ -1,17 +1,17 @@
 .parent {
+  display: flex;
+  width: fit-content;
+  border-radius: 1000px;
+  .general-button {
+    width: 184px;
+    height: 58px;
     display: flex;
-    width: fit-content;
+    justify-content: center;
+    align-items: center;
     border-radius: 1000px;
-    .general-button {
-      width: 184px;
-      height: 58px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 1000px;
-      gap: 10px;
-      font-size: 14px;
-      line-height: 100%;
-      letter-spacing: 0%;
-    }
+    gap: 10px;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 2px;
   }
+}
