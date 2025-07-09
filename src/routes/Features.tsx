@@ -10,9 +10,18 @@ const Features = ({ id }: { id: string }) => {
       </p>
 
       <div className="flex-feature-card">
-        <FeatureCard />
-        <FeatureCard />
-        <FeatureCard />
+        <FeatureCard
+          title="Emergency Care"
+          description=" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi impedit"
+        />
+        <FeatureCard
+          title="Qualified Doctors"
+          description="soluta saepe. Vitae non amet eum, voluptatibus aut voluptas quos velit"
+        />
+        <FeatureCard
+          title="24/7 Hours Service"
+          description="autem cumque neque inventore, qui, fugiat quasi adipisci saepe."
+        />
       </div>
     </div>
   );

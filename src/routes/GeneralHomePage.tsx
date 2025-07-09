@@ -7,6 +7,7 @@ import About from "./About";
 import "../sass/global.scss";
 import Home from "./Home";
 import scrollIntoView from "scroll-into-view";
+import Footer from "./Footer";
 
 const GeneralHomePage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -144,6 +145,7 @@ const GeneralHomePage = () => {
       {/* FEATURES */}
       <Features id="features" />
       <About id="about" />
+      <Footer id="footer " />
     </section>
   );
 };

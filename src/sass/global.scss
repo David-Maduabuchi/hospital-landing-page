@@ -258,7 +258,7 @@ section.index {
     overflow: hidden;
     max-width: 1500px;
     position: absolute;
-    top: 99vh;
+    top: 98vh;
 
     @include md {
       top: 130vh;
@@ -298,8 +298,10 @@ section.index {
     margin-top: 50px;
     flex-direction: column;
     color: #212529;
+    padding: 10px;
     @include md {
       height: auto;
+      border: 1px solid red;
     }
     h3.title {
       font-size: 32px;
@@ -310,6 +312,7 @@ section.index {
     p.des {
       font-size: 14px;
     }
+    text-align: center;
 
     .flex-feature-card {
       margin-top: 20px;
@@ -327,7 +330,125 @@ section.index {
   .about {
     display: flex;
     justify-content: center;
+    border-radius: 20px;
     align-items: center;
-    height: 100vh;
+    background: rgb(242, 242, 242);
+    height: 700px;
+    box-sizing: border-box;
+    gap: 50px;
+
+    @include md {
+      flex-direction: column;
+      height: auto;
+      gap: 30px;
+    }
+    .first {
+      width: 100%;
+      height: 100%;
+      padding:  10px;
+      h5 {
+        color: $text-bg-color;
+        font-size: 20px;
+        @include md {
+          text-align: center;
+        }
+      }
+      h3 {
+        font-size: 32px;
+        font-weight: 700;
+        color: $text-bg-color;
+        @include md {
+          text-align: center;
+          font-size: 22px;
+        }
+      }
+      p {
+        font-size: 14px;
+        @include md {
+          text-align: center;
+        } 
+      }
+      div.cards {
+        margin-top: 50px;
+        height: 100px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        @include md {
+          gap: 10px;
+        }
+
+        div.card {
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          gap: 10px;
+
+          display: flex;
+          &:hover {
+            .svg-container {
+              background: $text-bg-color;
+              svg {
+                fill: white;
+                transform: scale(1.1);
+              }
+            }
+          }
+          .svg-container {
+            border: 2px solid $text-bg-color;
+            border-radius: 50%;
+            width: fit-content;
+            padding: 10px;
+            transition: all 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 10px;
+
+            svg {
+              width: 50px;
+              height: 50px;
+              transition: all 0.5s ease;
+
+              fill: $text-bg-color;
+            }
+          }
+          .desc {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            span {
+              font-weight: 600;
+              color: $text-bg-color;
+              font-size: 18px;
+            }
+            p {
+              margin: 0;
+              font-size: 14px;
+              margin-top: 10px;
+              text-align: start;
+            }
+          }
+        }
+      }
+    }
+    .second {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      img {
+        border-radius: 10px;
+
+        @include md {
+          width: 80%;
+          height: auto;
+          margin: 0 auto;
+        }
+      }
+    }
   }
 }
