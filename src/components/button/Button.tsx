@@ -1,40 +1,37 @@
 import { Link } from "react-router-dom";
-import "./button.scss";
-import type { AnchorHTMLAttributes } from "react";
-
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  width: string;
-  height: string;
-  backgroundColor: string;
-  label: string;
-  href: string;
-  border?: boolean;
-  fontWeight: number;
-}
+import SVG from "../SVG";
+import "./Button.scss";
 const Button = ({
-  width,
-  height,
-  backgroundColor,
+  button_class,
   label,
-  href,
-  fontWeight,
-  border,
-  ...otherProps
-}: Props) => {
+  border = false,
+  backgroundColor = "#3e85b9",
+  color = "white",
+  handleNavClick,
+  href = "/",
+}: {
+  button_class: string;
+  label: string;
+  border: boolean;
+  backgroundColor: string;
+  color: string;
+  href: string;
+  handleNavClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}) => {
   return (
-    <Link to={href} {...otherProps} className="parent">
-      <div
-        className={`general-button ${border && "border border-black"} `}
-        style={{
-          color: backgroundColor === "black" ? "white" : "black",
-          width: width,
-          height: height,
-          backgroundColor: backgroundColor,
-          fontWeight: fontWeight,
-        }}
-      >
-        {label}
-      </div>
+    <Link
+      to={href}
+      style={{
+        border: border ? "1px solid white" : "none",
+        backgroundColor: backgroundColor,
+        color: color,
+        width: "fit-content",
+      }}
+      className={`${button_class} button-container`}
+      onClick={() => handleNavClick}
+    >
+      {label}
+      <SVG />
     </Link>
   );
 };

@@ -1,8 +1,8 @@
-import GeneralHomePage from "../../routes/GeneralHomePage";
+import IndexPage from "../../routes/Index";
 const MainLayout = () => {
   return (
     <div>
-      <GeneralHomePage />
+      <IndexPage />
     </div>
   );
 };

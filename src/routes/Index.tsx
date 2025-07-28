@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { navbarItems } from "../constant";
-import Button from "../components/button/Button";
-import Features from "./Features";
-import About from "./About";
+import About from "./About/About";
 import "../sass/global.scss";
-import Home from "./Home";
+import Home from "./Home/Home";
 import scrollIntoView from "scroll-into-view";
 import Footer from "./Footer";
+import Button from "../components/Button/Button";
+import BubblesAnimation from "../components/BubblesAnim/BubblesAnimation";
+import Patients from "./Patients/Patients";
+// import Button from "../components/button/Button";
 
-const GeneralHomePage = () => {
+const IndexPage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -55,12 +57,13 @@ const GeneralHomePage = () => {
     <section className="index">
       {/* Navbar */}
       <nav className="desktop">
-        <Link to={"/"}>VibetLogo</Link>
+        <Link className="logo" to={"/"}>
+          Vibet
+        </Link>
 
         <div className="nav-items">
           {navbarItems.map((item, index) => {
             const isActive = item.id === activeSection;
-
             return (
               <a
                 href={item.url}
@@ -75,17 +78,15 @@ const GeneralHomePage = () => {
           })}
         </div>
 
-        <div className="contact-buttons">
-          <Button
-            backgroundColor="black"
-            height="38px"
-            width="105px"
-            href="/get-started"
-            label="Get Started"
-            border
-            fontWeight={400}
-          />
-        </div>
+        <Button
+          button_class="small-btn"
+          backgroundColor="#3e85b9"
+          color="white"
+          handleNavClick={(e) => handleNavClick("about", e)}
+          href="/#about"
+          label="Sign In"
+          border={true}
+        />
       </nav>
 
       <nav className="mobile-nav">
@@ -119,35 +120,48 @@ const GeneralHomePage = () => {
 
       {/* These must have matching IDs! */}
       <Home id="home" handleNavClick={handleNavClick} />
+      <BubblesAnimation />
+      {/* About Page */}
+      <About id="about" />
 
-      {/* Water wave animation */}
-      <div className="water-wave">
-        <svg viewBox="0 0 2 1" preserveAspectRatio="none">
-          <defs>
-            <path
-              id="w"
-              d="
-      m0 1v-.5 
-      q.5.5 1 0
-      t1 0 1 0 1 0
-      v.5z"
+      <div className="address-multiple-conditions">
+        <span>Address Multiple Conditions</span>
+        <div className="address-list">
+          <div className="address-item">
+            <img src="https://www.clafiya.com/btnImages/heart.png" alt="" />
+            <span>Condition 1</span>
+          </div>
+          <div className="address-item">
+            <img
+              src="https://www.welldoc.com/wp-content/uploads/2023/11/Weight-Management.svg"
+              alt=""
             />
-          </defs>
-          <g>
-            <use href="#w" y=".0" fill="#009bad" />
-            <use href="#w" y=".1" fill="#00c1d6" />
-            <use href="#w" y=".1" fill="#00c1d6" />
-            <use href="#w" y=".2" fill="#ffffff" />
-          </g>
-        </svg>
+            <span>Condition 2</span>
+          </div>
+          <div className="address-item">
+            <img src="https://www.clafiya.com/btnImages/heart.png" alt="" />
+            <span>Condition 3</span>
+          </div>
+          <div className="address-item">
+            <img src="https://www.clafiya.com/btnImages/heart.png" alt="" />
+            <span>Condition 3</span>
+          </div>
+          <div className="address-item">
+            <img src="https://www.clafiya.com/btnImages/heart.png" alt="" />
+            <span>Condition 3</span>
+          </div>
+          <div className="address-item">
+            <img src="https://www.clafiya.com/btnImages/heart.png" alt="" />
+            <span>Condition 3</span>
+          </div>
+        </div>
       </div>
 
       {/* FEATURES */}
-      <Features id="features" />
-      <About id="about" />
+      <Patients id="patients" />
       <Footer id="footer " />
     </section>
   );
 };
 
-export default GeneralHomePage;
+export default IndexPage;

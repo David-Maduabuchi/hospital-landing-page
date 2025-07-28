@@ -1,0 +1,38 @@
+@use "../../sass/variable.scss" as *;
+@use "../../sass/responsive.scss" as *;
+
+
+.pat-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .card-svg {
+    width: 50px;
+    height: 50px;
+    border-radius: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-info {
+    flex: 1;
+
+    h3 {
+      margin: 5px 0;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-size: 18px;
+      color: $text-bg-color;
+      font-family: Franceus, Outfit, Poppins, sans-serif;
+    }
+    span {
+      font-size: 18px;
+      color: #3d4456;
+      font-weight: 500;
+      line-height: 1.5;
+      font-family: Outfit, Poppins, "Roboto", "Roobert PRO", sans-serif;
+    }
+  }
+}

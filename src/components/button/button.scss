@@ -1,17 +1,20 @@
-.parent {
-  display: flex;
-  width: fit-content;
-  border-radius: 1000px;
-  .general-button {
-    width: 184px;
-    height: 58px;
-    display: flex;
-    justify-content: center;
+.small-btn {
+    padding: 8px 16px;
+}
+.large-btn {
+    padding: 14px 24px;
+}
+
+.button-container {
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     border-radius: 1000px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
     gap: 10px;
-    font-size: 14px;
-    line-height: 100%;
-    letter-spacing: 2px;
-  }
+
+    
 }
