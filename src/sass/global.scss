@@ -1,6 +1,5 @@
 @use "../sass/variable.scss" as *;
 @use "../sass/responsive.scss" as *;
-
 section.index {
   font-family: Outfit, Poppins, sans-serif;
   scroll-behavior: smooth;
@@ -207,59 +206,5 @@ section.index {
     }
   }
 
-  .address-multiple-conditions {
-    border: 1px solid rgb(233, 233, 233);
-    border-radius: 10px;
-    height: 300px;
-    padding: 20px;
-    width: 90%;
-    margin: auto;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.12); // slightly deeper on hover
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    span {
-      font-weight: bold;
-      text-align: center;
-      font-family: Fraunces, Outfit, Poppins, sans-serif;
-      color: $text-bg-color;
-      font-size: 40px;
-    }
-
-    div.address-list {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      padding: 10px;
-      height: 170px;
-      @include md {
-        flex-direction: column;
-        align-items: center;
-      }
-      .address-item {
-        flex: 1;
-        padding: 10px;
-        border-right: 2px solid rgb(190, 190, 190);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        &:last-child {
-          border-right: none;
-        }
-
-        span {
-          font-weight: bold;
-          font-size: 20px;
-          color: #23242a;
-        }
-
-        img {
-          width: 70px;
-          height: auto;
-        }
-      }
-    }
-  }
+ 
 }

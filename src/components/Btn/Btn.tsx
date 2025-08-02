@@ -16,7 +16,7 @@ const Btn = ({
   backgroundColor: string;
   color: string;
   href: string;
-  handleNavClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  handleNavClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) => {
   return (
     <Link

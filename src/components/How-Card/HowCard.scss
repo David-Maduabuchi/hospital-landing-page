@@ -1,0 +1,59 @@
+.how-card {
+  width: 100%;
+  height: auto;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  gap: 20px;
+
+  .header {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    h1 {
+      font-size: 36px;
+      font-family: Fraunces, Outfit, Poppins;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  img {
+    height: 360px;
+    width: auto;
+    object-fit: cover;
+    object-position: center;
+    object-fit: center;
+  }
+
+  .base-and-big {
+    overflow: inherit;
+    margin-left: 200px;
+    border-bottom-left-radius: 40px;
+  }
+  .top-and-big {
+    margin-right: 200px;
+    border-top-right-radius: 40px;
+  }
+  .small-and-top {
+    margin-left: 100px;
+    border-top-left-radius: 40px;
+  }
+  .small-and-bottom {
+    margin-right: 100px;
+    border-bottom-right-radius: 40px;
+  }
+}
+
+.big-card {
+  width: 60%;
+}
+.small-card {
+  width: 40%;
+}
