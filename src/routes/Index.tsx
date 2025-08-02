@@ -5,7 +5,7 @@ import About from "./About/About";
 import "../sass/global.scss";
 import Home from "./Home/Home";
 import scrollIntoView from "scroll-into-view";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 import BubblesAnimation from "../components/BubblesAnim/BubblesAnimation";
 import Patients from "./Patients/Patients";
 import Btn from "../components/Btn/Btn";
