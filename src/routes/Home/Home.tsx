@@ -1,4 +1,4 @@
-import Button from "../../components/Button/Button";
+import Btn from "../../components/Btn/Btn";
 import "./Home.scss";
 
 const Home = ({
@@ -21,7 +21,7 @@ const Home = ({
             data, and support
           </p>
           <div className="hero-btns">
-            <Button
+            <Btn
               button_class="large-btn"
               backgroundColor="transparent"
               color="white"

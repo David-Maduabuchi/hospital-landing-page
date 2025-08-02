@@ -1,4 +1,4 @@
-import Button from "../../components/Button/Button";
+import Btn from "../../components/Btn/Btn";
 import "./About.scss";
 
 const About = ({ id }: { id: string }) => {
@@ -42,7 +42,7 @@ const About = ({ id }: { id: string }) => {
               </p>
             </div>
           </div>
-          <Button
+          <Btn
             backgroundColor="#3e85b9"
             label="Start Saving"
             color="white"

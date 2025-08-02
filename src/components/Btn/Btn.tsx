@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import SVG from "../SVG";
-import "./Button.scss";
-const Button = ({
+import "./Btn.scss";
+const Btn = ({
   button_class,
   label,
   border = false,
@@ -36,4 +36,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default Btn;

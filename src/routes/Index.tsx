@@ -6,9 +6,9 @@ import "../sass/global.scss";
 import Home from "./Home/Home";
 import scrollIntoView from "scroll-into-view";
 import Footer from "./Footer";
-import Button from "../components/Button/Button";
 import BubblesAnimation from "../components/BubblesAnim/BubblesAnimation";
 import Patients from "./Patients/Patients";
+import Btn from "../components/Btn/Btn";
   
 const IndexPage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -77,7 +77,7 @@ const IndexPage = () => {
           })}
         </div>
 
-        <Button
+        <Btn
           button_class="small-btn"
           backgroundColor="#3e85b9"
           color="white"
