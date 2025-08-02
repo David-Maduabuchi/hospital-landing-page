@@ -9,8 +9,7 @@ import Footer from "./Footer";
 import Button from "../components/Button/Button";
 import BubblesAnimation from "../components/BubblesAnim/BubblesAnimation";
 import Patients from "./Patients/Patients";
-// import Button from "../components/button/Button";
-
+  
 const IndexPage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");

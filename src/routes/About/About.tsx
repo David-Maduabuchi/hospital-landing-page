@@ -1,5 +1,5 @@
-import "./About.scss";
 import Button from "../../components/Button/Button";
+import "./About.scss";
 
 const About = ({ id }: { id: string }) => {
   return (

@@ -21,13 +21,13 @@ const Home = ({
             data, and support
           </p>
           <div className="hero-btns">
-         
-         
             <Button
               button_class="large-btn"
               backgroundColor="transparent"
               color="white"
-              handleNavClick={(e) => handleNavClick("about", e)}
+              handleNavClick={(
+                e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+              ) => handleNavClick("about", e)}
               href="/#about"
               label="Join as a provider"
               border={true}
